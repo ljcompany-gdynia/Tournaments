@@ -4,7 +4,7 @@
 <form method="post" class="py-4">
 {% csrf_token %}
 <h3>
-    Are you sure you want to remove "{{ object }}" from the database?
+    Are you sure you want to remove {{ object.name }} from the database?
 </h3>
 <input type="submit" value="Submit" class="btn btn-danger">
 </form>

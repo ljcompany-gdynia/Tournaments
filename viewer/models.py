@@ -10,10 +10,12 @@ class Team(models.Model):
     def __str__(self):
         return f'{self.name}'
 
+
 class Player(models.Model):
     name = TextField()
     team = ForeignKey(Team, on_delete=DO_NOTHING)
+    avatar = ImageField(default="player_pics/default.jpg", upload_to='player_pics')
+
 
 class Tournament(models.Model):
     players = ManyToManyField(Player, blank=True, null=True)
-
