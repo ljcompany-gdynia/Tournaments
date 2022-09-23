@@ -12,7 +12,7 @@ class Team(models.Model):
 
 
 class Player(models.Model):
-    name = TextField()
+    name = CharField(max_length=40)
     team = ForeignKey(Team, on_delete=DO_NOTHING)
     avatar = ImageField(default="player_pics/avatar.png", upload_to='player_pics')
     def __str__(self):

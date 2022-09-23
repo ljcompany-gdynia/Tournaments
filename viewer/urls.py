@@ -1,7 +1,7 @@
 from django.urls import path
 
 from viewer.views import TeamCreateView, TeamsView, TeamDeleteView, TournamentsIndexView, PlayerCreateView, PlayersView, \
-    PlayerDeleteView, TournamentCreateView, TournamentsView
+    PlayerDeleteView, TournamentCreateView, TournamentsView, TournamentDeleteView
 
 app_name = 'viewer'
 urlpatterns = [
@@ -14,4 +14,5 @@ urlpatterns = [
     path('player/<int:pk>/delete', PlayerDeleteView.as_view(), name="delete_player"),
     path('create_tournament', TournamentCreateView.as_view(), name="create_tournament"),
     path('tournaments', TournamentsView.as_view(), name="tournaments"),
+    path('player/<int:pk>/tournament', TournamentDeleteView.as_view(), name="delete_tournament"),
 ]

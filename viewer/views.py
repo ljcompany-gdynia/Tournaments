@@ -3,6 +3,7 @@ from django.views.generic import ListView, CreateView, DeleteView
 
 from viewer.forms import TeamForm
 from viewer.models import Tournament, Team, Player
+from viewer.templates.functions import pairs
 
 
 class TournamentsIndexView(ListView):
@@ -57,4 +58,20 @@ class TournamentCreateView(CreateView):
 class TournamentsView(ListView):
     template_name = "tournaments.html"
     model = Tournament
-    paginate_by = 10
+
+    def get_context_data(self, **kwargs):
+        context = super(TournamentsView, self).get_context_data(**kwargs)
+
+        context.update({
+            'players_list': context.get('object').players.all(),
+        })
+
+        pairs(context)
+
+
+        return context
+
+class TournamentDeleteView(DeleteView):
+    template_name = "forms/team_delete_form.html"
+    model = Tournament
+    success_url = reverse_lazy('viewer:tournaments')

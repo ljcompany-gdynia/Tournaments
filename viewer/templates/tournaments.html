@@ -20,6 +20,7 @@
         {% for player in tournament.players.all %}
       {{ player }}
         {% endfor %}
+             <a class="btn btn-danger btn-sm float-end " href="{% url "viewer:delete_tournament" tournament.id %}">X</a>
         </td>
     </tr>
   {% endfor %}
