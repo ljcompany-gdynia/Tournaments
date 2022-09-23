@@ -9,7 +9,6 @@
     <th colspan="9" style="font-size: large;">Dostępne zespoły <a href="{% url 'viewer:create_team' %}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">+</a></th>
   </tr>
     <tr>
-      <th scope="col">ID</th>
       <th scope="col">Nazwa</th>
       <th scope="col">Logo</th>
 
@@ -18,7 +17,6 @@
   <tbody>
   {% for team in object_list %}
     <tr>
-      <td>{{ team.id}} </td>
       <td>{{ team.name}} </td>
       <td><img style="width:100px; height:100px" src="{{ team.image.url }}"> <a class="btn btn-danger btn-sm float-end " href="{% url "viewer:delete_team" team.id %}">X</a></td>
     </tr>
