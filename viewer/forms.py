@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 
-from viewer.models import Team, Player
+from viewer.models import Team, Player, Tournament
 
 
 class TeamForm(ModelForm):
@@ -23,3 +23,8 @@ class PlayerForm(ModelForm):
             'avatar': 'Zdjęcie',
         }
 
+
+class TournamentForm(ModelForm):
+    class Meta:
+        model = Tournament
+        fields = '__all__'

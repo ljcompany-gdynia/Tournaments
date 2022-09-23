@@ -18,12 +18,12 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
-from viewer.views import TournamentsView
+from viewer.views import TournamentsIndexView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('viewer/', include('viewer.urls')),
-    path('', TournamentsView.as_view(), name="index"),
+    path('', TournamentsIndexView.as_view(), name="index"),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
