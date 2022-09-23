@@ -60,11 +60,8 @@ class TournamentsView(ListView):
     model = Tournament
 
     def get_context_data(self, **kwargs):
-        context = super(TournamentsView, self).get_context_data(**kwargs)
-
-        context.update({
-            'players_list': context.get('object').players.all(),
-        })
+        context = super().get_context_data(**kwargs)
+        context['players_list'] = Player.objects.all()
 
         pairs(context)
 
