@@ -5,7 +5,7 @@ from django.db.models import TextField, ImageField, ForeignKey, DO_NOTHING, Many
 
 class Team(models.Model):
     name = CharField(max_length=40)
-    image = ImageField(default="default.jpg", upload_to="team_pics")
+    image = ImageField(upload_to="team_pics")
 
     def __str__(self):
         return f'{self.name}'
@@ -14,7 +14,7 @@ class Team(models.Model):
 class Player(models.Model):
     name = TextField()
     team = ForeignKey(Team, on_delete=DO_NOTHING)
-    avatar = ImageField(default="player_pics/default.jpg", upload_to='player_pics')
+    avatar = ImageField(default="player_pics/avatar.png", upload_to='player_pics')
 
 
 class Tournament(models.Model):

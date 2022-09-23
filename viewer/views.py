@@ -31,5 +31,15 @@ class TeamDeleteView(DeleteView):
 class PlayerCreateView(CreateView):
     template_name = "forms/form.html"
     model = Player
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('viewer:players')
     fields = '__all__'
+
+class PlayersView(ListView):
+    template_name = "players.html"
+    model = Player
+    paginate_by = 10
+
+class PlayerDeleteView(DeleteView):
+    template_name = "forms/team_delete_form.html"
+    model = Player
+    success_url = reverse_lazy('viewer:players')
